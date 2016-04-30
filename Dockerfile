@@ -6,4 +6,3 @@ RUN apt-get update && apt-get install -y \
  && rm -rf /var/lib/apt/lists/*
 
 VOLUME ['/etc/icecast2/icecast.xml']
-USER nobody
