@@ -5,7 +5,7 @@ RUN apt-get update && apt-get install -y \
     icecast2 \
  && rm -rf /var/lib/apt/lists/*
 
-RUN mkdir /var/log/icecast
+RUN mkdir /var/log/icecast && chown icecast2 -R /var/log/icecast
 
 VOLUME ['/etc/icecast2/icecast.xml']
 
