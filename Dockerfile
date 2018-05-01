@@ -1,12 +1,9 @@
-FROM ubuntu:14.04
+FROM alpine:latest
 MAINTAINER Dmitry Romanov "dmitry.romanov85@gmail.com"
 
-RUN apt-get update && apt-get install -y \
-    icecast2 \
- && rm -rf /var/lib/apt/lists/*
+RUN ["apk", "update"]
 
-RUN mkdir /var/log/icecast && chown icecast2 -R /var/log/icecast
-
+RUN ["apk", "add", "icecast"]
 VOLUME ['/etc/icecast2/icecast.xml']
 
-CMD ['/usr/bin/icecast2 -c /etc/icecast2/icecast.xml']
+CMD ['/usr/bin/icecast -c /etc/icecast2/icecast.xml']
